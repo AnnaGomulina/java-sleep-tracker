@@ -10,16 +10,16 @@ class CountSessionTest {
     @Test
     public void applyOneSession() {
         assertEquals(
-                new SleepAnalysisResult("Количество сна в этой сессии равно: ", 1),
-                new CountSession().apply(List.of(new SleepingSession(null, null, null)))
+                1,
+                new CountSession().apply(List.of(new SleepingSession(null, null, null))).value
         );
     }
 
     @Test
     public void applyTwoSession() {
         assertEquals(
-                new SleepAnalysisResult("Количество сна в этой сессии равно: ", 2),
-                new CountSession().apply(List.of(new SleepingSession(null, null, null), new SleepingSession(null, null, null)))
+                2,
+                new CountSession().apply(List.of(new SleepingSession(null, null, null), new SleepingSession(null, null, null))).value
         );
     }
 }
