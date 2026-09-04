@@ -9,7 +9,7 @@ public class MaxSession implements Function<List<SleepingSession>, SleepAnalysis
     public SleepAnalysisResult apply(List<SleepingSession> sleepingSessions) {
         return new SleepAnalysisResult("Максимальная продолжительность сессии в минутах: ", (int) sleepingSessions.stream()
                 .map(sleepingSession -> Duration.between(sleepingSession.start, sleepingSession.finish))
-                .max((a, b) -> a.compareTo(b))
+                .max((duration1, duration2) -> duration1.compareTo(duration2))
                 .orElse(Duration.ZERO).getSeconds() / 60
         );
     }
